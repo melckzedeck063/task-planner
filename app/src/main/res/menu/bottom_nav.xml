@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home_menu"
+        android:title="Home"
+        android:icon="@drawable/home_icon"
+        />
+    <item
+        android:id="@+id/favourite_menu"
+        android:title="Favourites"
+        android:icon="@drawable/favourite_icon"
+        />
+    <item
+        android:id="@+id/completed_menu"
+        android:title="Completed"
+        android:icon="@drawable/completed_icon"
+        />
+
+</menu>
