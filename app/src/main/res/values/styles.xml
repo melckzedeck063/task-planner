@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TimePickerHeader" parent="Widget.MaterialComponents.TimePicker">
+        <item name="android:headerTimeTextAppearance">@style/HeaderTimeTextAppearance</item>
+    </style>
+
+    <style name="HeaderTimeTextAppearance">
+        <item name="android:textSize">16sp</item> <!-- Set your desired text size here -->
+    </style>
+
+</resources>

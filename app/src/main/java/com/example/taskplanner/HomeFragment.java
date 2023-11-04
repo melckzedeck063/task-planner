@@ -1,5 +1,6 @@
 package com.example.taskplanner;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -21,8 +22,9 @@ public class HomeFragment extends Fragment {
     private TaskAdapter taskAdapter;
     private ArrayList<TaskModel> taskModelArrayList;
     private RecyclerView recyclerView;
-    private Button button;
+    private Button button, buttonComplete, buttonCancel;
     private CheckBox checkBox;
+    public Dialog customDialog;
 
 
 
@@ -37,6 +39,13 @@ public class HomeFragment extends Fragment {
         button = view.findViewById(R.id.newTaskBtn);
         checkBox = view.findViewById(R.id.checkBox);
 
+        customDialog =  new Dialog(getContext());
+        customDialog.setContentView(R.layout.complete_dialog);
+
+        buttonComplete = customDialog.findViewById(R.id.buttonComplete);
+        buttonCancel = customDialog.findViewById(R.id.buttonCancel);
+
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -46,6 +55,13 @@ public class HomeFragment extends Fragment {
 
 
         createTask();
+
+        buttonCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                customDialog.dismiss();
+            }
+        });
 
         return  view;
     }
@@ -67,5 +83,9 @@ public class HomeFragment extends Fragment {
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
         recyclerView.setNestedScrollingEnabled(false);
+    }
+
+    public void completeTask (){
+        customDialog.show();
     }
 }

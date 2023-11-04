@@ -23,7 +23,6 @@
         android:elevation="4dp"
         app:titleTextColor="@color/custom1"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        android:title="New Task"
         android:titleTextColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

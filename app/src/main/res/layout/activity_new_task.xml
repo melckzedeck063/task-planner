@@ -13,44 +13,63 @@
         android:layout_height="?attr/actionBarSize"
         android:background="#ECBABA"
         android:elevation="4dp"
-        app:title="New Task"
-        app:titleTextColor="@color/custom1"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        android:title="New Task"
-        android:titleTextColor="@android:color/white"
+        app:titleTextColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Add Navigation Icon (Back Button) -->
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back_icon"
+            android:contentDescription="Back Button"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="Completed Tasks"
+            android:textColor="@color/custom1"
+            android:textStyle="bold"
+            android:textSize="24dp"
+            android:layout_gravity="center"
+            />
+
+    </androidx.appcompat.widget.Toolbar>
+
 
     <androidx.cardview.widget.CardView
-        android:layout_width="368dp"
-        android:layout_height="478dp"
-        android:layout_marginTop="120dp"
+        android:layout_width="364dp"
+        android:layout_height="510dp"
         android:elevation="10dp"
         app:cardCornerRadius="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_item">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#F4F4F4">
+            android:background="#E3DFDF">
 
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="44dp"
-                android:text="Add New Task"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:text="New Task"
                 android:textAlignment="center"
                 android:textColor="@color/custom1"
                 android:textSize="24dp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.497"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -66,7 +85,7 @@
                 android:textColorHint="@color/white"
                 android:textSize="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.491"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -74,104 +93,66 @@
                 android:id="@+id/spinner"
                 android:layout_width="320dp"
                 android:layout_height="40dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="18dp"
                 android:background="@drawable/custom_input"
                 android:entries="@array/categories"
+                android:popupBackground="@color/custom1"
                 android:prompt="@array/categories"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.491"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/taskName" />
 
-            <TextView
-                android:id="@+id/dateDefault"
-                android:layout_width="278dp"
-                android:layout_height="28dp"
-                android:layout_marginTop="24dp"
-                android:paddingStart="7dp"
-                android:text="date"
-                android:textColor="@color/custom1"
-                android:textSize="18dp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.282"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
             <Spinner
                 android:id="@+id/days"
                 android:layout_width="wrap_content"
                 android:layout_height="35dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="24dp"
                 android:background="@drawable/custom_input"
                 android:entries="@array/days"
+                android:popupBackground="@color/custom1"
                 android:prompt="@array/days"
+                android:spinnerMode="dropdown"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.113"
+                app:layout_constraintHorizontal_bias="0.083"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/dateDefault" />
-
-
-            <LinearLayout
-                android:id="@+id/linearLayout2"
-                android:layout_width="320dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:orientation="horizontal"
-                android:paddingHorizontal="0dp"
-                android:paddingStart="1dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/days">
-
-                <Spinner
-                    android:id="@+id/time_spinner"
-                    android:layout_width="100dp"
-                    android:layout_height="35dp"
-                    android:layout_marginHorizontal="6dp"
-                    android:background="@drawable/custom_input"
-                    android:entries="@array/hours"
-                    android:prompt="@array/hours" />
-
-                <Spinner
-                    android:id="@+id/minute_spinner"
-                    android:layout_width="100dp"
-                    android:layout_height="35dp"
-                    android:background="@drawable/custom_input"
-                    android:layout_marginHorizontal="6dp"
-                    android:entries="@array/minues"
-                    android:prompt="@array/minues" />
-
-                <Spinner
-                    android:id="@+id/zone_spinner"
-                    android:layout_width="100dp"
-                    android:layout_height="35dp"
-                    android:layout_marginHorizontal="6dp"
-                    android:background="@drawable/custom_input"
-                    android:entries="@array/time_zone"
-                    android:prompt="@array/time_zone" />
-
-
-            </LinearLayout>
+                app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
             <Button
                 android:id="@+id/submit_btn"
                 android:layout_width="130dp"
                 android:layout_height="37dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="16dp"
                 android:background="@drawable/custom_btn"
                 android:backgroundTint="#ECBABA"
                 android:text="Submit"
                 android:textAlignment="center"
                 android:textColor="@color/custom1"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/timePicker" />
+
+            <TimePicker
+                android:id="@+id/timePicker"
+                android:layout_width="320dp"
+                android:layout_height="180dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/custom_input"
+                android:headerBackground="@color/custom1"
+                android:numbersBackgroundColor="@color/white"
+                android:numbersSelectorColor="@color/white"
+                android:numbersInnerTextColor="@color/white"
+                android:numbersTextColor="@color/custom1"
+                android:timePickerMode="spinner"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+                app:layout_constraintTop_toBottomOf="@+id/days" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
