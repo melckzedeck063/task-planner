@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 
 import java.util.ArrayList;
 
@@ -21,6 +22,8 @@ public class HomeFragment extends Fragment {
     private ArrayList<TaskModel> taskModelArrayList;
     private RecyclerView recyclerView;
     private Button button;
+    private CheckBox checkBox;
+
 
 
     @Override
@@ -32,6 +35,7 @@ public class HomeFragment extends Fragment {
 
         recyclerView = view.findViewById(R.id.recyclerView1);
         button = view.findViewById(R.id.newTaskBtn);
+        checkBox = view.findViewById(R.id.checkBox);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
