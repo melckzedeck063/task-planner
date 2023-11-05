@@ -14,8 +14,10 @@ import android.widget.Spinner;
 import android.widget.TimePicker;
 import android.widget.Toast;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +27,9 @@ public class NewTaskActivity extends AppCompatActivity {
     private EditText task;
     private Button  button;
     private TimePicker  timePicker;
+    private ArrayList<TaskModel>  taskModelArrayList;
+    private TaskAdapter  taskAdapter;
+    private SQliteDBHelper databaseHelper;
 
 
 
@@ -37,6 +42,8 @@ public class NewTaskActivity extends AppCompatActivity {
 
         Toolbar toolbar =  findViewById(R.id.toolbar_item);
         setSupportActionBar(toolbar);
+
+         databaseHelper  =  new SQliteDBHelper(this);
 
         // Set back button click listener
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -97,20 +104,35 @@ public class NewTaskActivity extends AppCompatActivity {
                     }
                 }
 
-                String toastMessage = "Task Name: " + taskName +
-                        "\nCategory: " + category +
-                        "\nDay: " + selected_day +
-                        "\nTime: " + hour + ":" + String.format("%02d", minute) + " " + amPm;
+//                String toastMessage = "Task Name: " + taskName +
+//                        "\nCategory: " + category +
+//                        "\nDay: " + selected_day +
+//                        "\nTime: " + hour + ":" + String.format("%02d", minute) + " " + amPm;
+//
+//                // Show the toast message
 
-                // Show the toast message
-                Toast.makeText(NewTaskActivity.this, toastMessage, Toast.LENGTH_SHORT).show();
+                TaskModel taskModel = new TaskModel(taskName, category, selected_day,amPm, false,false,hour,minute);
+
+                databaseHelper.addTask(taskModel);
+
+                Toast.makeText(NewTaskActivity.this, "New task added", Toast.LENGTH_SHORT).show();
             }
         });
 
 
 
 
+
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (databaseHelper != null) {
+            databaseHelper.close();
+        }
+    }
 
 }
+
+

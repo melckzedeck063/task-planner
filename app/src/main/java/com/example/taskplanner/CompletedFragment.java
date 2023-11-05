@@ -36,16 +36,9 @@ public class CompletedFragment extends Fragment {
     private void createNeWtask(){
         taskModelArrayList =  new ArrayList<>();
 
-        taskModelArrayList.add(new TaskModel("Time to code Meck", "2023-25 22:00", true,false));
-        taskModelArrayList.add(new TaskModel("Fitness and sports exercise", "2023-10-25", true, false));
-        taskModelArrayList.add(new TaskModel("Time to code Meck", "2023-25 22:00", true,false));
-        taskModelArrayList.add(new TaskModel("Fitness and sports exercise", "2023-10-25", true, false));
-        taskModelArrayList.add(new TaskModel("Time to code Meck", "2023-25 22:00", true,false));
-        taskModelArrayList.add(new TaskModel("Fitness and sports exercise", "2023-10-25", true, false));
-        taskModelArrayList.add(new TaskModel("Time to code Meck", "2023-25 22:00", true,false));
-        taskModelArrayList.add(new TaskModel("Fitness and sports exercise", "2023-10-25", true, false));
-        taskModelArrayList.add(new TaskModel("Time to code Meck", "2023-25 22:00", true,false));
-        taskModelArrayList.add(new TaskModel("Fitness and sports exercise", "2023-10-25", true, false));
+        taskModelArrayList.add(new TaskModel("Time to code Meck", "2023-25 22:00","Personal", "AM", false,false, 10, 30));
+        taskModelArrayList.add(new TaskModel("Fitness and sports exercise", "2023-10-25", "Health","PM", false, false, 01,45));
+
 
         taskAdapter = new TaskAdapter(taskModelArrayList, getContext());
         recyclerView.setAdapter(taskAdapter);

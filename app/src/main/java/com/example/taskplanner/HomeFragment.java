@@ -67,17 +67,7 @@ public class HomeFragment extends Fragment {
     }
 
     private void createTask(){
-        taskModelArrayList =  new ArrayList<>();
-
-        taskModelArrayList.add(new TaskModel("Time to code Meck", "2023-25 22:00", false,false));
-        taskModelArrayList.add(new TaskModel("Fitness and sports exercise", "2023-10-25", false, false));
-        taskModelArrayList.add(new TaskModel("Time to code Meck", "2023-25 22:00", false,false));
-        taskModelArrayList.add(new TaskModel("Fitness and sports exercise", "2023-10-25", false, false));
-        taskModelArrayList.add(new TaskModel("Time to code Meck", "2023-25 22:00", true,false));
-        taskModelArrayList.add(new TaskModel("Fitness and sports exercise", "2023-10-25", true, false));
-        taskModelArrayList.add(new TaskModel("Time to code Meck", "2023-25 22:00", false,false));
-        taskModelArrayList.add(new TaskModel("Fitness and sports exercise", "2023-10-25", true, false));
-
+        
         taskAdapter =  new TaskAdapter(taskModelArrayList, getContext());
         recyclerView.setAdapter(taskAdapter);
 
